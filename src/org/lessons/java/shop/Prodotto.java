@@ -24,6 +24,7 @@ public class Prodotto {
         this.codice = randomCodice();
     }
 
+
     //codice è un numero random ed è accessibile solo in lettura
     public int getCodice() {
         return codice;

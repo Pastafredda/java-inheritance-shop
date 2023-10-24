@@ -1,15 +1,23 @@
 package org.lessons.java.shop;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         //creare 3 prodotti
-        Prodotto prodotto= new Prodotto("prodotto 1", "questo è un prodotto 1", 14.0, 22);
-        Prodotto prodotto2= new Prodotto("prodotto 2", "questo è un prodotto 2", 5.0, 24);
-        Prodotto prodotto3= new Prodotto("prodotto 3", "questo è un prodotto 3", 10.0, 20);
-        //stampare il nome completo + prezzo compreso di iva
-        System.out.println("nome: " + prodotto.nomeCompleto() + " " + " " + prodotto.prezzoIva()+ "€");
-        System.out.println("nome: " + prodotto2.nomeCompleto() + " " + " " + prodotto2.prezzoIva()+ "€");
-        System.out.println("nome: " + prodotto3.nomeCompleto() + " " + " " + prodotto3.prezzoIva()+ "€");
-    }
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Inserisci nome prodotto");
+        String nome = scanner.nextLine();
+        System.out.println("Inserisci descrizione prodotto");
+        String descrizione = scanner.nextLine();
+        System.out.println("Inserisci prezzo");
+        double prezzo= Double.parseDouble((scanner.nextLine()));
+        System.out.println("Inserisci iva in %");
+        int iva = Integer.parseInt(scanner.nextLine());
 
+        Prodotto prodotto = new Prodotto( nome, descrizione, prezzo,iva);
+        System.out.println(prodotto.nomeCompleto());
+        System.out.println(prodotto.prezzoIva() + "€");
+        scanner.close();
+    }
 }
